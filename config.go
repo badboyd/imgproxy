@@ -207,6 +207,7 @@ type config struct {
 	DownloadBufferSize             int
 	GZipBufferSize                 int
 	BufferPoolCalibrationThreshold int
+	StripEXIFHeader                bool
 }
 
 var conf = config{
@@ -311,6 +312,7 @@ func configure() {
 	strEnvConfig(&conf.GCSKey, "IMGPROXY_GCS_KEY")
 
 	boolEnvConfig(&conf.ETagEnabled, "IMGPROXY_USE_ETAG")
+	boolEnvConfig(&conf.StripEXIFHeader, "IMGPROXY_STRIP_EXIF_HEADER")
 
 	strEnvConfig(&conf.BaseURL, "IMGPROXY_BASE_URL")
 

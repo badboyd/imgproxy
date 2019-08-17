@@ -17,6 +17,10 @@ func extractMeta(img *vipsImage) (int, int, int, bool) {
 	angle := vipsAngleD0
 	flip := false
 
+	if conf.StripEXIFHeader {
+		return width, height, angle, flip
+	}
+
 	orientation := img.Orientation()
 
 	if orientation >= 5 && orientation <= 8 {
